@@ -88,3 +88,24 @@
    * log — Показать журналы коммитов
    * show — Показать различные типы объектов.
    * status -- Показать статус рабочего дерева.
+
+
+
+Создаем новую ветку и вносим необходимые изменения в файл
+git checkout -b updatereadme
+vim README.md
+git add README.md
+git commit -m "Добавили инструкцию как создать pull request"
+Делаем push
+git push --set-upstream origin updatereadme
+Переходим на свою страницу репозитория. Выбираем ветку updatereadme и жмем кнопку Compare & pull request
+Заметки
+Что бы сделать push от другого пользователя необходимо выполнить команду
+
+GIT_SSH_COMMAND='ssh -i ~/.ssh/user-private-key -o IdentitiesOnly=yes' git push git@github.com:gulden-geekbrains/version_control.git
+вместо user-private-key подставьте свой ключ
+
+Можно прописать настройки для подсоединения по ssh
+
+git config remote.origin.url git@github.com:gitusername/reponame
+git config core.sshCommand "ssh -i ~/.ssh/user-private-key -o IdentitiesOnly=yes"
